@@ -6,7 +6,12 @@ import { Players } from './../imports/api/players'
 
 const renderPlayers = playerList => {
   return playerList.map(player => {
-    return <h3 key={player._id}>{player.name} has {player.score} point(s)</h3>
+    return (
+      <h3 key={player._id}>
+        {player.name} has {player.score} point(s)
+        <button onClick={() => Players.remove({_id: player._id})}>Remove</button>
+      </h3>
+    )
   })
 }
 
@@ -14,7 +19,7 @@ const handleSubmit = e => {
   e.preventDefault();
   const playerName = e.target.playerName.value
   if (playerName) {
-    this.playerName = '';
+    e.target.playerName.value = '';
     Players.insert({
       name: playerName,
       score: 0
