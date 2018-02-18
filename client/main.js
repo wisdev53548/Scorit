@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom'
 import { Meteor } from 'meteor/meteor'
 
 Meteor.startup(() => {
-  let titleGreeting = <h1>Hello, and welcome to Skrit!</h1>
+  let title = <h1>Scorit!</h1>
   let userName = 'Jack'
-  let userGreeting = <p>Glad to see you back, {userName}!</p>
-  ReactDOM.render(titleGreeting, document.getElementById('app'))
-  ReactDOM.render(userGreeting, document.getElementById('greeting'))
+  let jsx = (
+    <div>
+      <h1>{title}</h1>
+      <h2>Good to see ya, {userName}</h2>
+      <p>This is the world's #1 scoring app</p>
+    </div>
+  )
+  ReactDOM.render(jsx, document.getElementById('app'))
 })
