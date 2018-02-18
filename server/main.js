@@ -1,6 +1,9 @@
-import { userName } from './../imports/utils'
-import add from './../imports/math'
+import { Players } from './../imports/api/players'
 
-console.log('Log from /server/main.js')
-console.log(userName)
-console.log(add(3, 5))
+Meteor.startup(() => {
+  Players.insert({
+    name: 'Michael',
+    score: 53
+  })
+  console.log(Players.find().fetch())
+})
